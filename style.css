@@ -213,6 +213,7 @@ span.strong {
     background-color: var(--primary-blue);
     color: var(--white);
     cursor: pointer;
+    font-size: var(--fs-18);
 }
 
 .bnr-btn:hover, .bnr-btn:focus {
@@ -222,9 +223,57 @@ span.strong {
 
 .bnr-controls-wrapper {
     margin-block: var(--size-40);
+    display: flex;
+    align-items: center;
+}
+
+.left-arrow,
+.right-arrow {
+    width: var(--size-48);
+    height: var(--size-48);
+}
+
+.left-line,
+.right-line {
+    width: var(--size-80);
+    height: var(--size-80);
+}
+
+.left-arrow {
+    margin-right: var(--size-24);
+}
+
+.left-line {
+    margin-right: var(--size-8);
+}
+
+.right-arrow {
+    margin-left: var(--size-24);
+}
+
+.bnr-controls-wrapper > img {
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.scrolling-text {
+    background-color: var(--primary-blue);
+    padding: calc(var(--size-24) / 2);
+    transform: rotate(-1.5deg);
+    margin-bottom: var(--size-220);
+    margin-inline: calc(var(--size-40) * -1);
+}
+
+.scrolling-text p {
+    color: var(--white);
+    font-size: var(--fs-18);
 }
 
 .mobile {
+    display: none;
+}
+
+.hidden {
     display: none;
 }
 
