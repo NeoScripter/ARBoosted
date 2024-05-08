@@ -267,6 +267,8 @@ span.strong {
 .scrolling-text p {
     color: var(--white);
     font-size: var(--fs-18);
+    white-space: nowrap;
+    overflow-x: hidden;
 }
 
 .mobile {
@@ -277,7 +279,7 @@ span.strong {
     display: none;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
     .desktop {
         display: none;
     }
@@ -314,6 +316,62 @@ span.strong {
     }
     .lang-switch {
         font-size: 18px;
+    }
+    .bnr-grid-group {
+        grid-template-columns: 1fr;
+        margin-block: 40px;
+    }
+    .bnr-title {
+        font-size: 32px;
+        margin-bottom: 16px;
+    }
+    .bnr-prg {
+        font-size: 18px;
+    }
+    .bnr-btn {
+        padding: 16px 60px;
+        font-size: 18px;
+        width: 100%;
+    }
+    .gif-wrapper {
+        width: 100%;
+        height: auto;
+    }
+    .bnr-controls-wrapper {
+        justify-content: center;
+    }
+    .left-arrow,
+    .right-arrow {
+        width: 48px;
+        height: 48px;
+    }
+
+    .left-line,
+    .right-line {
+        width: 80px;
+        height: 80px;
+    }
+    .left-arrow {
+        margin-right: 24px;
+    }
+    
+    .left-line {
+        margin-right: 8px;
+    }
+    
+    .right-arrow {
+        margin-left: 24px;
+    }
+    .scrolling-text {
+        padding: 12px;
+        transform: rotate(-1.5deg);
+        margin-bottom: var(--size-220);
+    }
+    .scrolling-text p {
+        font-size: 18px;
+    }
+    .bnr-controls-wrapper {
+        margin-bottom: 48px;
     }
 }
 
