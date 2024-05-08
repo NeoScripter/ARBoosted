@@ -165,6 +165,65 @@ html, body {
     cursor: pointer;
 }
 
+/* Banner */
+
+
+.bnr-grid-group {
+    margin-block: calc(var(--size-80) * 2) var(--size-32);
+    display: grid;
+    gap: var(--size-32);
+    grid-template-columns: 1fr 1fr;
+}
+
+.banner .desc-wrapper {
+    color: var(--white);
+
+}
+
+.bnr-title {
+    margin-bottom: var(--size-24);
+    font-family: 'Inter Light';
+    font-weight: 300;
+    font-size: var(--fs-48);
+}
+
+span.strong {
+    font-weight: 900;
+    font-family: 'Inter Black';
+}
+
+.bnr-prg {
+    margin-bottom: var(--size-60);
+    font-size: var(--fs-24);
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+.gif-wrapper {
+    padding: var(--size-32);
+    width: var(--size-904);
+    height: var(--size-502);
+}
+
+.bnr-btn {
+    border: none;
+    display: block;
+    padding: var(--size-16) var(--size-60);
+    border-radius: 5px;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    cursor: pointer;
+}
+
+.bnr-btn:hover, .bnr-btn:focus {
+    background-color: var(--blue-200);
+    color: var(--white);
+}
+
+.bnr-controls-wrapper {
+    margin-block: var(--size-40);
+}
+
 .mobile {
     display: none;
 }
