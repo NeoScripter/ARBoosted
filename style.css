@@ -1,0 +1,76 @@
+:root {
+    /* Font sizes */
+    --fs-86: 86px;
+    --fs-80: 80px;
+    --fs-48: 48px;
+    --fs-34: 34px;
+    --fs-24: 24px;
+    --fs-18: 18px;
+    --fs-14: 14px;
+
+    /* Colors */
+    --black: #050A25;
+    --white: #E9EBF5;
+    --primary-blue: #E9EBF5;
+    --primary-blue-gradient: linear-gradient(to bottom, #050A25 50%, #162184 100%);
+
+    --blue-100: #3140D0;
+    --blue-200: #212EAA;
+    --blue-300: #162184;
+    --blue-400: #111A70;
+    --blue-500: #0C145D;
+
+    --size-1216: clamp(1593.6px, 63.33vw, 538.4px);
+    --size-904: clamp(1183.33px, 47.08vw, 400px);
+    --size-679: clamp(889.38px, 35.38vw, 298.6px);
+    --size-592: clamp(775.42px, 30.83vw, 261.76px);
+    --size-572: clamp(749.17px, 29.67vw, 251.2px);
+    --size-502: clamp(657.08px, 26.08vw, 222.4px);
+    --size-440: clamp(575px, 22.92vw, 196px);
+    --size-433: clamp(567.08px, 22.46vw, 191.2px);
+    --size-392: clamp(513.33px, 20.42vw, 173.6px);
+    --size-388: clamp(508.33px, 20.21vw, 172px);
+    --size-367: clamp(480.42px, 19.03vw, 161.2px);
+    --size-220: clamp(287.92px, 11.46vw, 97.6px);
+    --size-196: clamp(256.67px, 10.21vw, 86.4px);
+    --size-180: clamp(235.83px, 9.33vw, 79.2px);
+    --size-176: clamp(230.42px, 9.08vw, 77.6px);
+    --size-80: clamp(104.79px, 4.17vw, 35.2px);
+    --size-64: clamp(83.83px, 3.33vw, 28.32px);
+    --size-60: clamp(78.75px, 3.13vw, 26.4px);
+    --size-48: clamp(62.92px, 2.49vw, 21.12px);
+    --size-45: clamp(58.96px, 2.34vw, 19.8px);
+    --size-40: clamp(52.42px, 2.08vw, 17.6px);
+    --size-32: clamp(41.92px, 1.67vw, 14.08px);
+    --size-24: clamp(31.42px, 1.24vw, 10.56px);
+    --size-16: clamp(20.92px, 0.83vw, 7.04px);
+    --size-8: clamp(10.46px, 0.42vw, 3.52px);
+
+}
+
+@font-face {
+    font-family: 'Inter Black';
+    src: url(assets/fonts/Inter-Black.woff2);
+}
+
+@font-face {
+    font-family: 'Inter Bold';
+    src: url(assets/fonts/Inter-Bold.woff2);
+}
+
+@font-face {
+    font-family: 'Inter Regular';
+    src: url(assets/fonts/Inter-Regular.woff2);
+}
+
+@font-face {
+    font-family: 'Inter Light';
+    src: url(assets/fonts/Inter-Light.woff2);
+}
+
+html, body {
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+
