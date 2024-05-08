@@ -1,17 +1,17 @@
 :root {
     /* Font sizes */
-    --fs-86: 86px;
-    --fs-80: 80px;
-    --fs-48: 48px;
-    --fs-34: 34px;
-    --fs-24: 24px;
-    --fs-18: 18px;
-    --fs-14: 14px;
+    --fs-86: clamp(38.67px, 4.48vw, 112.65px);
+    --fs-80: clamp(35.2px, 4.17vw, 104.79px);
+    --fs-48: clamp(21.12px, 2.49vw, 62.92px);
+    --fs-32: clamp(13.33px, 1.67vw, 36.67px);
+    --fs-24: clamp(10.56px, 1.24vw, 31.42px);
+    --fs-18: clamp(7.92px, 0.94vw, 23.56px);
+    --fs-14: clamp(6.16px, 0.73vw, 18.31px);    
 
     /* Colors */
     --black: #050A25;
     --white: #E9EBF5;
-    --primary-blue: #E9EBF5;
+    --primary-blue: #3548F8;
     --primary-blue-gradient: linear-gradient(to bottom, #050A25 50%, #162184 100%);
 
     --blue-100: #3140D0;
@@ -20,32 +20,31 @@
     --blue-400: #111A70;
     --blue-500: #0C145D;
 
-    --size-1216: clamp(1593.6px, 63.33vw, 538.4px);
-    --size-904: clamp(1183.33px, 47.08vw, 400px);
-    --size-679: clamp(889.38px, 35.38vw, 298.6px);
-    --size-592: clamp(775.42px, 30.83vw, 261.76px);
-    --size-572: clamp(749.17px, 29.67vw, 251.2px);
-    --size-502: clamp(657.08px, 26.08vw, 222.4px);
-    --size-440: clamp(575px, 22.92vw, 196px);
-    --size-433: clamp(567.08px, 22.46vw, 191.2px);
-    --size-392: clamp(513.33px, 20.42vw, 173.6px);
-    --size-388: clamp(508.33px, 20.21vw, 172px);
-    --size-367: clamp(480.42px, 19.03vw, 161.2px);
-    --size-220: clamp(287.92px, 11.46vw, 97.6px);
-    --size-196: clamp(256.67px, 10.21vw, 86.4px);
-    --size-180: clamp(235.83px, 9.33vw, 79.2px);
-    --size-176: clamp(230.42px, 9.08vw, 77.6px);
-    --size-80: clamp(104.79px, 4.17vw, 35.2px);
-    --size-64: clamp(83.83px, 3.33vw, 28.32px);
-    --size-60: clamp(78.75px, 3.13vw, 26.4px);
-    --size-48: clamp(62.92px, 2.49vw, 21.12px);
-    --size-45: clamp(58.96px, 2.34vw, 19.8px);
-    --size-40: clamp(52.42px, 2.08vw, 17.6px);
-    --size-32: clamp(41.92px, 1.67vw, 14.08px);
-    --size-24: clamp(31.42px, 1.24vw, 10.56px);
-    --size-16: clamp(20.92px, 0.83vw, 7.04px);
-    --size-8: clamp(10.46px, 0.42vw, 3.52px);
-
+    --size-1216: clamp(538.4px, 63.33vw, 1593.6px);
+    --size-904: clamp(400px, 47.08vw, 1183.33px);
+    --size-679: clamp(298.6px, 35.38vw, 889.38px);
+    --size-592: clamp(261.76px, 30.83vw, 775.42px);
+    --size-572: clamp(251.2px, 29.67vw, 749.17px);
+    --size-502: clamp(222.4px, 26.08vw, 657.08px);
+    --size-440: clamp(196px, 22.92vw, 575px);
+    --size-433: clamp(191.2px, 22.46vw, 567.08px);
+    --size-392: clamp(173.6px, 20.42vw, 513.33px);
+    --size-388: clamp(172px, 20.21vw, 508.33px);
+    --size-367: clamp(161.2px, 19.03vw, 480.42px);
+    --size-220: clamp(97.6px, 11.46vw, 287.92px);
+    --size-196: clamp(86.4px, 10.21vw, 256.67px);
+    --size-180: clamp(79.2px, 9.33vw, 235.83px);
+    --size-176: clamp(77.6px, 9.08vw, 230.42px);
+    --size-80: clamp(35.2px, 4.17vw, 104.79px);
+    --size-64: clamp(28.32px, 3.33vw, 83.83px);
+    --size-60: clamp(26.4px, 3.13vw, 78.75px);
+    --size-48: clamp(21.12px, 2.49vw, 62.92px);
+    --size-45: clamp(19.8px, 2.34vw, 58.96px);
+    --size-40: clamp(17.6px, 2.08vw, 52.42px);
+    --size-32: clamp(14.08px, 1.67vw, 41.92px);
+    --size-24: clamp(10.56px, 1.24vw, 31.42px);
+    --size-16: clamp(7.04px, 0.83vw, 20.92px);
+    --size-8: clamp(3.52px, 0.42vw, 10.46px);    
 }
 
 @font-face {
@@ -71,6 +70,80 @@
 html, body {
     overflow-x: hidden;
     min-height: 100vh;
+    background: var(--primary-blue-gradient);
+    font-family: 'Inter Regular';
 }
 
+.wrapper {
+    padding-inline: var(--size-40);
+    margin-inline: auto;
+}
 
+/* Navigation */
+
+.header {
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: var(--size-40);
+}
+
+.blue-span {
+    color: var(--primary-blue);
+}
+
+.logo-wrapper {
+    font-weight: 900;
+    font-family: 'Inter Bold';
+    font-size: var(--fs-32);
+}
+
+.top-nav-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--size-32);
+}
+
+.top-nav-list-item {
+    list-style: none;
+}
+
+.top-nav-list-item a {
+    list-style: none;
+    font-family: 'Inter Regular';
+    font-size: var(--fs-18);
+    color: var(--white);
+    text-decoration: none;
+}
+
+.nav-btn-wrapper {
+    font-size: var(--fs-18);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--size-32);
+}
+
+.btn-group {
+    display: flex;
+    align-items: center;
+    gap: var(--size-8);
+}
+
+.nav-btn {
+    color: var(--white);
+    padding: calc(var(--size-24) / 2) var(--size-24);
+    text-decoration: none;
+    display: block;
+    flex-shrink: 0;
+    font-size: var(--fs-18);
+    border-radius: 2px;
+    background-color: var(--primary-blue);
+}
+
+.nav-btn:first-of-type {
+    color: var(--primary-blue);
+    background-color: var(--white);
+}
