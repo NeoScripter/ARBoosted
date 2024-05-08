@@ -83,10 +83,13 @@ html, body {
 
 .header {
     color: var(--white);
+    padding-block: var(--size-40);
+}
+
+.header-inner-wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-block: var(--size-40);
 }
 
 .blue-span {
@@ -118,6 +121,10 @@ html, body {
     text-decoration: none;
 }
 
+.top-nav-list-item a:hover, .top-nav-list-item a:focus {
+    color: var(--primary-blue);
+}
+
 .nav-btn-wrapper {
     font-size: var(--fs-18);
     display: flex;
@@ -146,4 +153,62 @@ html, body {
 .nav-btn:first-of-type {
     color: var(--primary-blue);
     background-color: var(--white);
+}
+
+.nav-btn:hover, .nav-btn:focus {
+    background-color: var(--blue-200);
+    color: var(--white);
+}
+
+.brg-menu-btn {
+    width: 40px;
+    cursor: pointer;
+}
+
+.mobile {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .desktop {
+        display: none;
+    }
+    .mobile {
+        display: flex;
+    }
+    .logo-wrapper {
+        font-size: 22px;
+    }
+    .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 32px;
+    }
+    .nav.mobile {
+        align-self: center;
+    }
+    .nav.mobile .top-nav-list {
+        flex-direction: column;
+        gap: 32px;
+    }
+    .nav.mobile .top-nav-list-item a {
+        font-size: 18px;
+    }
+    .btn-group.mobile {
+        flex-direction: column;
+    }
+    .nav-btn {
+        width: 100%;
+        font-size: 18px;
+        padding: 12px 24px;
+        text-align: center;
+    }
+    .lang-switch {
+        font-size: 18px;
+    }
+}
+
+.collapsible {
+    display: none;
 }

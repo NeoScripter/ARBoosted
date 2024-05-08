@@ -11,10 +11,35 @@
 <body>
     <div class="wrapper">
         <header class="header">
-            <div class="logo-wrapper">
-                <span class="blue-span">AR</span>Boosted
+            <div class="header-inner-wrapper">
+                <div class="logo-wrapper">
+                    <span class="blue-span">AR</span>Boosted
+                </div>
+                <nav class="nav desktop">
+                    <ul class="top-nav-list">
+                        <li class="top-nav-list-item"><a href="">Why us?</a></li>
+                        <li class="top-nav-list-item"><a href="">Statistic service</a></li>
+                        <li class="top-nav-list-item"><a href="">How to start?</a></li>
+                        <li class="top-nav-list-item"><a href="">Reviews</a></li>
+                        <li class="top-nav-list-item"><a href="">Pricing</a></li>
+                    </ul>
+                </nav>
+                <div class="nav-btn-wrapper">
+                    <div class="btn-group desktop">
+                        <a href="" class="nav-btn">Sign in</a>
+                        <a href="" class="nav-btn">Click to start</a>
+                    </div>
+                    <form class="lang-switch">
+                        <label for="dropdown">ENG</label>
+                        <select id="dropdown" name="dropdown">
+                            <option value="eng">ENG</option>
+                            <option value="rus">RUS</option>
+                        </select>
+                    </form>
+                    <img src="assets/svgs/br-menu-close.svg" alt="three horizontal lines" class="brg-menu-btn mobile">
+                </div>
             </div>
-            <nav class="nav">
+            <nav class="nav mobile collapsible">
                 <ul class="top-nav-list">
                     <li class="top-nav-list-item"><a href="">Why us?</a></li>
                     <li class="top-nav-list-item"><a href="">Statistic service</a></li>
@@ -23,18 +48,9 @@
                     <li class="top-nav-list-item"><a href="">Pricing</a></li>
                 </ul>
             </nav>
-            <div class="nav-btn-wrapper">
-                <div class="btn-group">
-                    <a href="" class="nav-btn">Sign in</a>
-                    <a href="" class="nav-btn">Click to start</a>
-                </div>
-                <form class="lang-switch">
-                    <label for="dropdown">ENG</label>
-                    <select id="dropdown" name="dropdown">
-                        <option value="eng">ENG</option>
-                        <option value="rus">RUS</option>
-                    </select>
-                </form>
+            <div class="btn-group mobile collapsible">
+                <a href="" class="nav-btn">Sign in</a>
+                <a href="" class="nav-btn">Click to start</a>
             </div>
         </header>
     </div>
