@@ -67,6 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
+    // Function to add hover listeners to arrows (kind of self-explanatory function name)
     function addHoverListeners(arrow, direction) {
         arrow.addEventListener('mouseenter', function() {
             if (!arrow.classList.contains('disabled')) {
@@ -96,4 +97,62 @@ document.addEventListener("DOMContentLoaded", function() {
 
     addHoverListeners(rightArrow, 'right');
     addHoverListeners(leftArrow, 'left');
+
+    // Animated title in the intro section 
+    const animatedTitles = document.querySelectorAll('.animated-title');
+    let currentTitleIndex = 0;
+
+    function initAnimation() {
+        // Initially hide all titles and set paragraphs opacity to 0.5
+        animatedTitles.forEach(title => {
+            title.style.display = 'none';
+            const prgs = title.querySelectorAll('p');
+            prgs.forEach(prg => prg.style.opacity = '0.5');
+        });
+
+        // Start animation with the first title
+        cycleTitles();
+    }
+
+    function cycleTitles() {
+        const currentTitle = animatedTitles[currentTitleIndex];
+        currentTitle.style.display = 'block'; // Show the current title
+
+        makeParagraphsVisible(currentTitle, () => {
+            // After all paragraphs are visible
+            setTimeout(() => {
+                fadeOutTitle(currentTitle, () => {
+                    // Move to the next title
+                    currentTitleIndex = (currentTitleIndex + 1) % animatedTitles.length;
+                    cycleTitles();
+                });
+            }, 1500); // Wait for 1.5 seconds before fading out and moving to the next title
+        });
+    }
+
+    function makeParagraphsVisible(title, callback) {
+        const prgs = title.querySelectorAll('p');
+        let delay = 1500;
+
+        prgs.forEach((prg, index) => {
+            setTimeout(() => {
+                prg.style.opacity = '1';
+                if (index === prgs.length - 1) {
+                    // If it's the last paragraph, call the callback after it's fully visible
+                    setTimeout(callback, 1500);
+                }
+            }, delay);
+            delay += 1500; // Increment delay for each paragraph
+        });
+    }
+
+    function fadeOutTitle(title, callback) {
+        const prgs = title.querySelectorAll('p');
+        prgs.forEach(prg => prg.style.opacity = '0.5');
+        title.style.display = 'none';
+            callback();
+    }
+
+    // Start the initial animation setup
+    initAnimation();
 });

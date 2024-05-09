@@ -270,7 +270,6 @@ img.left-arrow.disabled, img.right-arrow.disabled {
     background-color: var(--primary-blue);
     padding: calc(var(--size-24) / 2);
     transform: rotate(-1.5deg);
-    margin-bottom: var(--size-220);
     margin-inline: calc(var(--size-40) * -1);
 }
 
@@ -281,7 +280,26 @@ img.left-arrow.disabled, img.right-arrow.disabled {
     overflow-x: hidden;
 }
 
-/* Banner */
+/* Intro */
+
+.animated-text-wrapper {
+    margin-block: var(--size-220);
+    width: calc(var(--size-1216) * 1.2);
+    margin-inline: auto;
+}
+
+.animated-title {
+    font-size: var(--fs-48);
+    font-weight: 900;
+    font-family: 'Inter Black';
+    color: var(--white);
+    text-align: center;
+}
+
+.animated-title p {
+    transition: opacity 1.5s ease;
+    opacity: 0.5;
+}
 
 .mobile {
     display: none;
@@ -385,6 +403,16 @@ img.left-arrow.disabled, img.right-arrow.disabled {
     .bnr-controls-wrapper {
         margin-bottom: 48px;
     }
+    .animated-title {
+        font-size: 34px;
+        font-weight: 700;
+    }
+
+    .animated-text-wrapper {
+        margin-block: 136px;
+        width: 100%;
+    }
+    
 }
 
 .collapsible {
