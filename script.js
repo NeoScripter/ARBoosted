@@ -26,59 +26,74 @@ document.addEventListener("DOMContentLoaded", function() {
 
     changeBurgerMenuIcon(".brg-menu-btn", ".collapsible");
 
+    // Define selectors for elements
+    const leftArrow = document.querySelector('.left-arrow');
+    const rightArrow = document.querySelector('.right-arrow');
+    const bnrTitles = document.querySelectorAll('.bnr-title');
+    const gifWrappers = document.querySelectorAll('.gif-wrapper');
+    const leftLine = document.querySelector('.left-line');
+    const rightLine = document.querySelector('.right-line');
 
-     // Define selectors for all toggle-able elements and control elements
-     const controls = {
-        arrows: {
-            left: document.querySelector('.left-arrow'),
-            right: document.querySelector('.right-arrow')
-        },
-        lines: {
-            left: document.querySelector('.left-line'),
-            right: document.querySelector('.right-line')
-        }
-    };
+    // Set initial state
+    leftArrow.classList.add('disabled');
 
-    const elements = {
-        bnrTitles: document.querySelectorAll('.bnr-title'),
-        gifWrappers: document.querySelectorAll('.gif-wrapper')
-    };
-
-    // Initialize disabled states for controls
-    updateControls('init');
-
-    // Function to update the state of controls based on action
-    function updateControls(action) {
-        const { left, right } = controls.arrows;
-        const { left: lineLeft, right: lineRight } = controls.lines;
-
-        const leftEnabled = action === 'right';
-        
-        left.classList.toggle('disabled', !leftEnabled);
-        left.src = `assets/svgs/left-arrow-${leftEnabled ? 'normal' : 'disabled'}.svg`;
-        lineLeft.src = `assets/svgs/line-${leftEnabled ? 'enabled' : 'disabled'}.svg`;
-
-        right.classList.toggle('disabled', leftEnabled);
-        right.src = `assets/svgs/right-arrow-${leftEnabled ? 'disabled' : 'normal'}.svg`;
-        lineRight.src = `assets/svgs/line-${leftEnabled ? 'disabled' : 'enabled'}.svg`;
-    }
-
-    // Function to toggle visibility of elements
+    // Function to toggle visibility and arrow state
     function toggleElements() {
-        Object.values(elements).forEach(group => {
-            group.forEach(item => item.classList.toggle('hidden'));
+        // Toggle hidden class for banner titles
+        bnrTitles.forEach(title => {
+            title.classList.toggle('hidden');
         });
 
-        // Determine direction based on hidden state of the first banner title
-        updateControls(elements.bnrTitles[0].classList.contains('hidden') ? 'right' : 'left');
+        // Toggle hidden class for GIF wrappers
+        gifWrappers.forEach(wrapper => {
+            wrapper.classList.toggle('hidden');
+        });
+
+        // Toggle the disabled state and sources of arrows
+        if (leftArrow.classList.contains('disabled')) {
+            leftArrow.classList.remove('disabled');
+            leftArrow.src = 'assets/svgs/left-arrow-normal.svg';
+            rightArrow.classList.add('disabled');
+            rightArrow.src = 'assets/svgs/right-arrow-disabled.svg';
+            leftLine.src = 'assets/svgs/line-enabled.svg';
+            rightLine.src = 'assets/svgs/line-disabled.svg';
+        } else {
+            leftArrow.classList.add('disabled');
+            leftArrow.src = 'assets/svgs/left-arrow-disabled.svg';
+            rightArrow.classList.remove('disabled');
+            rightArrow.src = 'assets/svgs/right-arrow-normal.svg';
+            leftLine.src = 'assets/svgs/line-disabled.svg';
+            rightLine.src = 'assets/svgs/line-enabled.svg';
+        }
     }
 
-    // Add event listeners for arrows
-    Object.values(controls.arrows).forEach(arrow => {
-        arrow.addEventListener('click', function() {
+    function addHoverListeners(arrow, direction) {
+        arrow.addEventListener('mouseenter', function() {
             if (!arrow.classList.contains('disabled')) {
-                toggleElements();
+                arrow.src = `assets/svgs/${direction}-arrow-hover.svg`;
             }
         });
+    
+        arrow.addEventListener('mouseleave', function() {
+            if (!arrow.classList.contains('disabled')) {
+                arrow.src = `assets/svgs/${direction}-arrow-normal.svg`;
+            }
+        });
+    }
+
+    // Event listeners for arrows
+    leftArrow.addEventListener('click', function() {
+        if (!leftArrow.classList.contains('disabled')) {
+            toggleElements();
+        }
     });
+
+    rightArrow.addEventListener('click', function() {
+        if (!rightArrow.classList.contains('disabled')) {
+            toggleElements();
+        }
+    });
+
+    addHoverListeners(rightArrow, 'right');
+    addHoverListeners(leftArrow, 'left');
 });
