@@ -155,4 +155,40 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Start the initial animation setup
     initAnimation();
+
+
+    // Find all elements that will trigger the expand/collapse behavior
+    const bookingIcons = document.querySelectorAll('.icon-booking');
+
+    // Iterate over each booking icon and add a click event listener
+    bookingIcons.forEach(icon => {
+        icon.addEventListener('click', function () {
+            // Find the associated `booking-ul` element within the same `booking-grid-element`
+            const parentElement = icon.closest('.booking-grid-element');
+            const bookingUl = parentElement.querySelector('.booking-ul');
+
+            // Toggle the display and sliding effect
+            if (bookingUl.style.display === 'block') {
+                // Slide up to hide
+                bookingUl.style.height = '0';
+                bookingUl.style.opacity = '0';
+                setTimeout(() => {
+                    bookingUl.style.display = 'none';
+                }, 700);
+
+                // Change the icon to "close"
+                icon.src = 'assets/svgs/booking-element-close.svg';
+            } else {
+                // Slide down to show
+                bookingUl.style.display = 'block';
+                setTimeout(() => {
+                    bookingUl.style.height = `${bookingUl.scrollHeight}px`;
+                    bookingUl.style.opacity = '1';
+                }, 20);
+
+                // Change the icon to "open"
+                icon.src = 'assets/svgs/booking-element-open.svg';
+            }
+        });
+    });
 });

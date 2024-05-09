@@ -449,7 +449,11 @@ img.left-arrow.disabled, img.right-arrow.disabled {
 
 .booking-ul {
     padding-left: 1em;
+    overflow: hidden;
+    height: 0;
+    opacity: 0;
     display: none;
+    transition: all 0.7s ease;
 }
 
 .booking-li {
