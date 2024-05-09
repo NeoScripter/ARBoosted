@@ -411,6 +411,80 @@ img.left-arrow.disabled, img.right-arrow.disabled {
 
 .booking-grid-group {
     display: grid;
+    grid-template-columns: 1fr 1fr;
+    color: var(--white);
+    gap: var(--size-32);
+}
+
+.booking-grid-element {
+    min-height: var(--size-440);
+    padding: var(--size-40);
+    border: 1px solid rgba(233, 235, 245, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--size-32);
+    background: linear-gradient(to bottom, #050A25 20%, #162184 80%);
+    border-radius: 5px;
+}
+
+.booking-grid-element .top-element {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid rgba(233, 235, 245, 0.3);
+    padding-bottom: var(--size-24);
+}
+
+.booking .top-element .number {
+    font-size: var(--fs-18);
+}
+
+.booking .bottom-element h2 {
+    font-size: var(--fs-32);
+    font-family: 'Inter Bold';
+    font-weight: 700;
+    margin-bottom: var(--size-16);
+}
+
+.booking-ul {
+    padding-left: 1em;
+    display: none;
+}
+
+.booking-li {
+    font-size: var(--fs-24);
+    margin-bottom: 0.5em;
+}
+
+.icon-booking {
+    width: var(--fs-24);
+    aspect-ratio: 1 / 1;
+    cursor: pointer;
+}
+
+.booking-grid-element.five {
+    grid-column: span 2;
+}
+
+.booking-grid-element.one:hover, .booking-grid-element.one:focus {
+    background: var(--blue-100);
+}
+
+.booking-grid-element.two:hover, .booking-grid-element.two:focus {
+    background: var(--blue-200);
+}
+
+.booking-grid-element.three:hover, .booking-grid-element.three:focus {
+    background: var(--blue-300);
+}
+
+.booking-grid-element.four:hover, .booking-grid-element.four:focus {
+    background: var(--blue-400);
+}
+
+.booking-grid-element.five:hover, .booking-grid-element.five:focus {
+    background: var(--blue-500);
 }
 
 .mobile {
@@ -559,6 +633,7 @@ img.left-arrow.disabled, img.right-arrow.disabled {
     .intro-grid-element:hover .grid-element-bottom {
         font-size: 26px;
     }
+    
     .booking-top {
         margin-block: 136px;
     }
@@ -581,10 +656,47 @@ img.left-arrow.disabled, img.right-arrow.disabled {
     .booking-grid-group-title h2 {
         font-size: 34px;
         margin-bottom: 8px;
+        font-weight: 500;
     }
     
     .booking-grid-group-title p {
         font-size: 18px;
+    }
+    
+    .booking-grid-group {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .booking-grid-element {
+        min-height: 368px;
+        padding: 24p;
+        gap: 32px;
+    }
+    
+    .booking-grid-element .top-element {
+        padding-bottom: 12px;
+    }
+    
+    .booking .top-element .number {
+        font-size: 18px;
+    }
+    
+    .booking .bottom-element h2 {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+    
+    .booking-li {
+        font-size: 18px;
+    }
+    
+    .icon-booking {
+        width: 20px;
+    }
+    
+    .booking-grid-element.five {
+        grid-column: span 1;
     }
 }
 
