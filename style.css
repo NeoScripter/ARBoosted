@@ -548,6 +548,8 @@ img.left-arrow.disabled, img.right-arrow.disabled {
     padding: var(--size-24);
     height: calc(var(--size-40) * 3);
     border-radius: 5px;
+    opacity: 0.4;
+    transition: opacity 1s ease; 
 }
 
 .emerging-element-content {
@@ -555,6 +557,7 @@ img.left-arrow.disabled, img.right-arrow.disabled {
     align-items: center;
     gap: var(--size-502);
     font-size: var(--fs-18);
+    transition: opacity 1s ease; 
 }
 
 .mr-right-16 {
@@ -616,6 +619,10 @@ img.left-arrow.disabled, img.right-arrow.disabled {
     margin-bottom: var(--size-220);
 }
 
+.carousel-btn:hover, .carousel-btn:focus {
+    background-color: var(--blue-200);
+}
+
 .carousel-container {
     margin-top: var(--size-64);
     width: 100%;
@@ -629,26 +636,82 @@ img.left-arrow.disabled, img.right-arrow.disabled {
 
 .carousel-track {
     display: flex;
-    gap: 24px;
+    gap: var(--size-32);
     transition: transform 0.3s ease-in-out;
 }
 
 .carousel-item {
-    width: var(--size-592); 
+    width: var(--size-572); 
     padding: var(--size-40);
     background-color: rgba(5, 10, 37, 1);
     border-radius: 5px;
     flex: 0 0 var(--size-592);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--size-32);
+}
+
+.carousel-item-top {
+    min-height: calc(var(--size-176) - var(--size-24));
+    border-bottom: 1px solid rgba(233, 235, 245, 0.2);
+    padding-bottom: var(--size-24);
+}
+
+.item-title {
+    font-size: var(--fs-18);
+    margin-bottom: var(--size-8);
+    letter-spacing: 0.05em;
+}
+
+.carousel-link {
+    text-decoration: none;
+    color: var(--white);
+    font-size: var(--fs-18);
+    opacity: 0.8;
+    text-decoration: underline dotted var(--white);
+    text-underline-offset: calc(var(--size-8) / 1.5);
+    text-decoration-thickness: calc(var(--size-8) / 4);
+}
+
+.carousel-link-wrapper {
+    text-align: right;
+}
+
+.carousel-item-bottom {
+    display: flex;
+    align-items: center;
+    gap: var(--size-24);
+}
+
+.profile-desc-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.profile-name {
+    font-size: var(--fs-18);
+    font-weight: 700;
+}
+
+.company-name {
+    font-size: var(--fs-18);
+    opacity: 0.8;
+}
+
+.profile-img {
+    width: var(--size-60);
+    aspect-ratio: 1 / 1;
 }
 
 .arrow-wrapper {
-    padding-top: 16px;
     display: flex;
     justify-content: center;
-    gap: 24px;
     position: absolute;
-    top: 24px;
-    right: 0;
+    top: calc(var(--size-64) * -2);
+    right: var(--size-40);
 }
 
 .carousel-arrow {

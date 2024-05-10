@@ -248,4 +248,34 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     }
+
+
+    const emergingElements = document.querySelectorAll('.emerging-element-wrapper');
+
+    let emergingWrapperIndex = 0;
+    const intervalDuration = 1500; // 1.5 seconds per element
+
+    // Function to reset the opacity of all elements to 0.4
+    function resetOpacity() {
+        emergingElements.forEach(el => {
+            el.style.opacity = '0.4';
+        });
+    }
+
+    // Function to gradually increase opacity of the current element
+    function updateOpacity() {
+        // Only reset opacity if it's the start of a new round
+        if (emergingWrapperIndex === 0) {
+            resetOpacity();
+        }
+
+        // Set the opacity of the current element to 1
+        emergingElements[emergingWrapperIndex].style.opacity = '1';
+
+        // Move to the next index, looping back to the start
+        emergingWrapperIndex = (emergingWrapperIndex + 1) % emergingElements.length;
+    }
+
+    // Set an interval to update the opacity every 1.5 seconds
+    setInterval(updateOpacity, intervalDuration);
 });
