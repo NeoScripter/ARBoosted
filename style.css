@@ -168,6 +168,63 @@ html, body {
     cursor: pointer;
 }
 
+/* Dropdown menu */
+
+.custom-dropdown {
+    position: relative;
+    width: var(--size-64);
+    height: var(--size-32);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown-selected {
+    background-color: transparent;
+    color: white;
+    padding: var(--size-8) var(--size-16);
+    cursor: pointer;
+    position: relative;
+    font-size: var(--fs-18);
+}
+
+.dropdown-selected .arrow {
+    position: absolute;
+    right: calc(var(--size-16) * -1);
+    top: var(--size-8);
+}
+
+.dropdown-selected .arrow img {
+    width: var(--size-24);
+    aspect-ratio: 1 / 1;
+}
+
+.dropdown-options {
+    position: absolute;
+    width: 100%;
+    background-color: transparent;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+}
+
+.dropdown-option {
+    color: white;
+    padding: var(--size-8) var(--size-16);
+    cursor: pointer;
+}
+
+.dropdown-option:hover {
+    background-color: #333; /* Slightly lighter black for hover effect */
+}
+
+.hidden {
+    display: none;
+}
+
+
+
 /* Banner */
 
 .bnr-grid-group {

@@ -279,4 +279,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Set an interval to update the opacity every 1.5 seconds
     setInterval(updateOpacity, intervalDuration);
+
+
+    // Custom dropdown menu
+    const selected = document.querySelector('.dropdown-selected');
+    const options = document.querySelector('.dropdown-options');
+    
+    selected.addEventListener('click', () => {
+        // Toggle dropdown visibility
+        options.style.display = options.style.display === 'block' ? 'none' : 'block';
+    });
+
+    const allOptions = document.querySelectorAll('.dropdown-option');
+    allOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            selected.firstChild.textContent = option.textContent; // Update the selected text
+            options.style.display = 'none'; // Close the dropdown
+        });
+    });
 });
