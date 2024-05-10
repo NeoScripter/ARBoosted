@@ -73,6 +73,7 @@ html, body {
     min-height: 100vh;
     background: var(--primary-blue-gradient);
     font-family: 'Inter Regular';
+    color: var(--white);
 }
 
 .wrapper {
@@ -527,6 +528,133 @@ img.left-arrow.disabled, img.right-arrow.disabled {
     opacity: 0.8;
 }
 
+.screen-h2 {
+    font-family: 'Inter Black';
+    font-weight: 900;
+    font-size: var(--fs-48);
+    margin-bottom: var(--size-8);
+    text-align: center;
+}
+
+.screen-h2 + p {
+    text-align: center;
+    font-size: var(--fs-24);
+    font-weight: 400;
+    opacity: 0.8;
+    margin-bottom: var(--size-64);
+}
+
+.emerging-element-wrapper {
+    padding: var(--size-24);
+    height: calc(var(--size-40) * 3);
+    border-radius: 5px;
+}
+
+.emerging-element-content {
+    display: flex;
+    align-items: center;
+    gap: var(--size-502);
+    font-size: var(--fs-18);
+}
+
+.mr-right-16 {
+    font-family: 'Inter Bold';
+    font-weight: 900;
+    margin-right: var(--size-16);
+    font-size: var(--fs-24);
+}
+
+.flex-element-right {
+    font-size: var(--fs-24);
+}
+
+.emerging-element-wrapper.one {
+    background-color: var(--blue-500);
+}
+
+.emerging-element-wrapper.two {
+    background-color: var(--blue-400);
+}
+
+.emerging-element-wrapper.three {
+    background-color: var(--blue-300);
+}
+
+.emerging-element-wrapper.four {
+    background-color: var(--blue-200);
+}
+
+.emerging-element-wrapper.five {
+    background-color: var(--blue-100);
+}
+
+.carousel-wrapper {
+    background: linear-gradient(to bottom, #050A25 30%, #162184 80%);
+    padding-block: var(--size-220) calc(var(--size-220) / 2);
+}
+
+.carousel-title {
+    font-family: 'Inter Bold';
+    font-weight: 900;
+    font-size: var(--fs-48);
+    text-align: center;
+}
+
+.carousel-btn {
+    margin-top: var(--size-40);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    background-color: var(--primary-blue);
+    margin-inline: auto;
+    text-decoration: none;
+    width: calc(var(--size-502) / 2);
+    height: var(--size-60);
+    font-size: var(--fs-18);
+    border-radius: 5px;
+    margin-bottom: var(--size-220);
+}
+
+.carousel-container {
+    margin-top: var(--size-64);
+    width: 100%;
+    position: relative;
+}
+
+.carousel-viewport {
+    overflow: hidden; 
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 24px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.carousel-item {
+    width: var(--size-592); 
+    padding: var(--size-40);
+    background-color: rgba(5, 10, 37, 1);
+    border-radius: 5px;
+    flex: 0 0 var(--size-592);
+}
+
+.arrow-wrapper {
+    padding-top: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    position: absolute;
+    top: 24px;
+    right: 0;
+}
+
+.carousel-arrow {
+    width: 32px;
+    cursor: pointer;
+}
 
 .mobile {
     display: none;

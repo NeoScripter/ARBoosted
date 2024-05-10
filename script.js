@@ -191,4 +191,61 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     });
+
+    // Reviews carousel
+    const carouselViewports = document.querySelectorAll('.carousel-viewport');
+    
+    carouselViewports.forEach(carouselContainer => {
+        setupCarousel(carouselContainer);
+    });
+
+    function setupCarousel(carouselContainer) {
+        const track = carouselContainer.querySelector('.carousel-track');
+        const items = Array.from(track.children);
+        const btnContainer = carouselContainer.nextElementSibling;
+        const nextButton = btnContainer.querySelector('.next-btn');
+        const prevButton = btnContainer.querySelector('.prev-btn');
+        const itemWidth = items[0].getBoundingClientRect().width;
+        let currentSlide = 0;
+        let startX;
+
+        nextButton.addEventListener('click', () => moveSlide(1));
+        prevButton.addEventListener('click', () => moveSlide(-1));
+
+        track.addEventListener('touchstart', handleTouchStart, { passive: false });
+        track.addEventListener('touchmove', handleTouchMove, { passive: false });
+        track.addEventListener('touchend', handleTouchEnd);
+
+        function moveSlide(direction) {
+            const newPosition = currentSlide + direction;
+            if (newPosition >= 0 && newPosition < items.length) {
+                currentSlide = newPosition;
+                moveTrack((itemWidth + 24) * currentSlide);
+            }
+        }
+
+        function moveTrack(position) {
+            track.style.transform = `translateX(-${position}px)`;
+        }
+
+        function handleTouchStart(e) {
+            startX = e.touches[0].clientX;
+        }
+
+        function handleTouchMove(e) {
+            const moveX = e.touches[0].clientX - startX;
+            if (Math.abs(moveX) > 5) {
+                e.preventDefault();
+            }
+        }
+
+        function handleTouchEnd(e) {
+            const moveX = e.changedTouches[0].clientX - startX;
+            if (moveX > 50) {
+                moveSlide(-1);
+            } else if (moveX < -50) {
+                moveSlide(1);
+            }
+        }
+    }
 });
