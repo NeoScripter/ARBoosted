@@ -177,7 +177,6 @@ html, body {
 
 .banner .desc-wrapper {
     color: var(--white);
-
 }
 
 .bnr-title {
@@ -491,6 +490,44 @@ img.left-arrow.disabled, img.right-arrow.disabled {
     background: var(--blue-500);
 }
 
+/* Bottom screen */
+
+.screen-grid-group {
+    margin-block: var(--size-220);
+    display: grid;
+    gap: var(--size-180);
+    grid-template-columns: 1fr var(--size-904);
+}
+
+.bottom-screen .desc-wrapper {
+    color: var(--white);
+}
+
+.screen-title {
+    margin-bottom: var(--size-24);
+    font-family: 'Inter Bold';
+    font-weight:900;
+    font-size: var(--fs-48);
+}
+
+.bottom-screen span.strong {
+    font-family: 'Inter Black';
+    color: var(--primary-blue);
+}
+
+.screen-ul {
+    margin-top: var(--size-24);
+    padding-left: 1em;
+}
+
+.screen-prg {
+    margin-bottom: var(--size-8);
+    font-size: var(--fs-24);
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+
 .mobile {
     display: none;
 }
@@ -701,6 +738,25 @@ img.left-arrow.disabled, img.right-arrow.disabled {
     
     .booking-grid-element.five {
         grid-column: span 1;
+    }
+
+    
+    .screen-grid-group {
+        margin-block: 136px 92px;
+        gap: 40px;
+        grid-template-columns: 1fr;
+    }
+    .screen-title {
+        margin-bottom: 16px;
+        font-size: 36px;
+    }
+    .screen-ul {
+        margin-top: 0;
+    }
+
+    .screen-prg {
+        margin-bottom: 8px;
+        font-size: 18px;
     }
 }
 
