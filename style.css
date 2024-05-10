@@ -529,7 +529,7 @@ img.left-arrow.disabled, img.right-arrow.disabled {
 }
 
 .screen-h2 {
-    font-family: 'Inter Black';
+    font-family: 'Inter Bold';
     font-weight: 900;
     font-size: var(--fs-48);
     margin-bottom: var(--size-8);
@@ -548,7 +548,7 @@ img.left-arrow.disabled, img.right-arrow.disabled {
     padding: var(--size-24);
     height: calc(var(--size-40) * 3);
     border-radius: 5px;
-    opacity: 0.4;
+    opacity: 0.2;
     transition: opacity 1s ease; 
 }
 
@@ -715,7 +715,7 @@ img.left-arrow.disabled, img.right-arrow.disabled {
 }
 
 .carousel-arrow {
-    width: 32px;
+    width: var(--size-48);
     cursor: pointer;
 }
 
@@ -948,6 +948,109 @@ img.left-arrow.disabled, img.right-arrow.disabled {
     .screen-prg {
         margin-bottom: 8px;
         font-size: 18px;
+    }
+
+    .screen-h2 {
+        font-size: 34px;
+        margin-bottom: 8px;
+    }
+
+    .screen-h2 + p {
+        font-size: 18px;
+    }
+
+    .emerging-element-wrapper {
+        padding: 24px;
+        height: auto;
+    }
+
+    .emerging-element-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+        font-size: 14px;
+    }
+
+    .mr-right-16 {
+        margin-right: 8px;
+        font-size: 18px;
+    }
+
+    .flex-element-right {
+        font-size: 18px;
+    }
+
+    .carousel-wrapper {
+        padding-block: 140px 60px;
+    }
+
+    .carousel-title {
+        font-size: 34px;
+        margin-bottom: 16px;
+    }
+
+    .carousel-btn {
+        margin-top: 40px;
+        margin-inline: auto;
+        width: 100%;
+        height: 60px;
+        font-size: 18px;
+        margin-bottom: 140px;
+    }
+
+    .carousel-container {
+        margin-top: 40px;
+    }
+
+    .carousel-track {
+        gap: 16px;
+    }
+
+    .carousel-item {
+        width: 320px; 
+        padding: 24px;
+        flex: 0 0 288px;
+        gap: 32px;
+    }
+
+    .carousel-item-top {
+        min-height: 293px;
+        padding-bottom: 24px;
+    }
+
+    .item-title {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .carousel-link {
+        font-size: 18px;
+        text-underline-offset: 8px;
+        text-decoration-thickness: 2px;
+    }
+    .carousel-item-bottom {
+        gap: 16px;
+    }
+
+    .profile-name {
+        font-size: 18px;
+    }
+
+    .company-name {
+        font-size: 18px;
+    }
+
+    .profile-img {
+        width: 56px;
+    }
+
+    .arrow-wrapper {
+        position: static;
+        padding-top: 16px;
+    }
+
+    .carousel-arrow {
+        width: 32px;
     }
 }
 

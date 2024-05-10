@@ -250,15 +250,16 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 
+    // Emerging wrapper animation
     const emergingElements = document.querySelectorAll('.emerging-element-wrapper');
 
     let emergingWrapperIndex = 0;
     const intervalDuration = 1500; // 1.5 seconds per element
 
-    // Function to reset the opacity of all elements to 0.4
+    // Function to reset the opacity of all elements to 0.2
     function resetOpacity() {
         emergingElements.forEach(el => {
-            el.style.opacity = '0.4';
+            el.style.opacity = '0.2';
         });
     }
 
