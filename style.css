@@ -364,7 +364,6 @@ img.left-arrow.disabled, img.right-arrow.disabled {
 
 .animated-title {
     display: none; /* Initially hide all titles except the first one */
-
 }
 
 /* Initially only the first title is visible */

@@ -99,25 +99,30 @@ document.addEventListener("DOMContentLoaded", function() {
     addHoverListeners(leftArrow, 'left');
 
     // Animated title in the intro section 
-    const titles = document.querySelectorAll('.animated-title');
+    const titles = document.querySelectorAll('.animated-text-wrapper .animated-title');
     let currentTitleIndex = 0;
 
+    // Function to initiate the animation cycle
     function typeAnimation() {
         const title = titles[currentTitleIndex];
-        const elements = Array.from(title.childNodes); // Get all child nodes including text and <br> tags
-        title.innerHTML = ''; // Clear current title content
+        const originalHTML = title.innerHTML;
+        title.innerHTML = ''; 
+        title.style.display = 'block'; 
 
-        // Function to process each node (either text or <br>)
-        elements.forEach(node => {
-            if (node.nodeType === Node.TEXT_NODE) { // Handle text nodes
-                const textContent = node.textContent;
-                textContent.split('').forEach(char => {
+        const parser = new DOMParser();
+        const parsedHTML = parser.parseFromString('<div>' + originalHTML + '</div>', 'text/html');
+        const nodes = Array.from(parsedHTML.body.firstChild.childNodes);
+
+        nodes.forEach(node => {
+            if (node.nodeType === Node.TEXT_NODE) {
+                node.textContent.split('').forEach(char => {
                     const span = document.createElement('span');
                     span.textContent = char;
                     title.appendChild(span);
                 });
-            } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'BR') { // Maintain line breaks
-                title.appendChild(node.cloneNode());
+            } else if (node.nodeType === Node.ELEMENT_NODE) {
+                const clone = node.cloneNode(true);
+                title.appendChild(clone);
             }
         });
 
@@ -127,22 +132,21 @@ document.addEventListener("DOMContentLoaded", function() {
             if (charIndex < spans.length) {
                 spans[charIndex].style.opacity = 1;
                 charIndex++;
-                setTimeout(showNextChar, 40); // Speed of "typing"
+                setTimeout(showNextChar, 30);
             } else {
                 setTimeout(() => {
-                    title.style.display = 'none'; 
+                    title.innerHTML = originalHTML;
+                    title.style.display = 'none';
                     currentTitleIndex = (currentTitleIndex + 1) % titles.length;
-                    titles[currentTitleIndex].style.display = 'block';
-                    typeAnimation(); 
-                }, 500); // Delay before transitioning to the next title
+                    typeAnimation(); // Recur for the next title
+                }, 500);
             }
         }
 
         showNextChar(); // Start showing characters
     }
 
-    typeAnimation(); // Start the initial animation
-
+    typeAnimation();
 
     // Collapsible booking items
     const bookingElements = document.querySelectorAll('.booking-grid-element');
