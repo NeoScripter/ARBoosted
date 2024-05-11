@@ -22,6 +22,16 @@ document.addEventListener("DOMContentLoaded", function() {
                 menuOpen = false;
             }
         });
+
+        document.querySelectorAll('.top-nav-list-item').forEach(li => {
+            li.addEventListener('click', () => {
+                burgerMenu.src = 'assets/svgs/br-menu-close.svg';
+                popupMenuItems.forEach(item => {
+                    item.classList.add('collapsible');
+                });
+                menuOpen = false;
+            });
+        });
     }
 
     changeBurgerMenuIcon(".brg-menu-btn", ".collapsible");
