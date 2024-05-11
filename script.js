@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (charIndex < spans.length) {
                 spans[charIndex].style.opacity = 1;
                 charIndex++;
-                setTimeout(showNextChar, 30);
+                setTimeout(showNextChar, 60);
             } else {
                 setTimeout(() => {
                     title.innerHTML = originalHTML;
