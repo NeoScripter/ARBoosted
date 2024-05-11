@@ -1015,11 +1015,17 @@ strong {
 }
 
 #why-us,
-#statistic-service,
-#how-to-start,
+#statistic-service {
+    scroll-margin-top: calc(var(--size-180));
+}
+
 #reviews,
 #pricing {
-    scroll-margin-top: var(--size-60);
+    scroll-margin-top: calc(var(--size-180) * 1.7);
+}
+
+#how-to-start {
+    scroll-margin-top: calc(var(--size-80));
 }
 
 @media screen and (max-width: 700px) {
@@ -1475,11 +1481,17 @@ strong {
         font-size: 18px;
     }
     #why-us,
-    #statistic-service,
-    #how-to-start,
+    #statistic-service {
+        scroll-margin-top: 110px;
+    }
+
+    #how-to-start {
+        scroll-margin-top: 0;
+    }
+
     #reviews,
     #pricing {
-        scroll-margin-top: 60px;
+        scroll-margin-top: 250px;
     }
 }
 
