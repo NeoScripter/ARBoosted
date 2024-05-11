@@ -686,6 +686,10 @@ img.left-arrow.disabled, img.right-arrow.disabled {
     margin-bottom: 0;
 }
 
+.subscription .carousel-btn {
+    margin-bottom: 0;
+}
+
 .carousel-btn:hover, .carousel-btn:focus {
     background-color: var(--blue-200);
 }
@@ -699,6 +703,7 @@ img.left-arrow.disabled, img.right-arrow.disabled {
 .carousel-viewport {
     overflow: hidden; 
     width: 100%;
+    padding-inline: var(--size-40);
 }
 
 .carousel-track {
@@ -712,7 +717,7 @@ img.left-arrow.disabled, img.right-arrow.disabled {
     padding: var(--size-40);
     background-color: rgba(5, 10, 37, 1);
     border-radius: 5px;
-    flex: 0 0 var(--size-592);
+    flex: 0 0 var(--size-572);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -779,6 +784,7 @@ img.left-arrow.disabled, img.right-arrow.disabled {
     position: absolute;
     top: calc(var(--size-64) * -2);
     right: var(--size-40);
+    padding-top: var(--size-16);
 }
 
 .carousel-arrow {
@@ -878,6 +884,12 @@ em.blue {
 .sub-card.light a {
     background-color: var(--white);
     color: var(--primary-blue);
+}
+
+.sub-card-bottom a:hover, 
+.sub-card-bottom a:focus {
+    background-color: var(--blue-200);
+    color: var(--white);
 }
 
 .sub-card.dark {
@@ -1280,8 +1292,7 @@ strong {
     }
 
     .arrow-wrapper {
-        position: static;
-        padding-top: 16px;
+        display: none;
     }
 
     .carousel-arrow {
@@ -1290,7 +1301,7 @@ strong {
 
     
     .subscription {
-        background: radial-gradient(circle at 50% 25%, #162184 -10%, #050A25 35%);
+        background: none;
     }
     .subscription-title-wrapper {
         padding-block: 136px;
