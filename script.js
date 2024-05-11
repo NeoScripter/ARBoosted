@@ -289,6 +289,7 @@ document.addEventListener("DOMContentLoaded", function() {
         option.addEventListener('click', function() {
             const language = this.textContent.trim().toLowerCase();
             loadLanguage(language);
+            setTimeout(() => location.reload(), 200);
             sessionStorage.setItem('selectedLanguage', language); // Save to session storage
             dropdown.firstChild.textContent = this.textContent; // Update the displayed language
             options.classList.add('hidden'); // Hide options after selection
