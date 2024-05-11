@@ -265,19 +265,45 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     // Custom dropdown menu
-    const selected = document.querySelector('.dropdown-selected');
+    const dropdown = document.querySelector('.dropdown-selected');
     const options = document.querySelector('.dropdown-options');
-    
-    selected.addEventListener('click', () => {
-        // Toggle dropdown visibility
-        options.style.display = options.style.display === 'block' ? 'none' : 'block';
+
+    // Toggle dropdown visibility
+    dropdown.addEventListener('click', () => {
+        options.classList.toggle('hidden');
     });
 
+    // Listen for option selection
     const allOptions = document.querySelectorAll('.dropdown-option');
     allOptions.forEach(option => {
-        option.addEventListener('click', () => {
-            selected.firstChild.textContent = option.textContent; // Update the selected text
-            options.style.display = 'none'; // Close the dropdown
+        option.addEventListener('click', function() {
+            const language = this.textContent.trim().toLowerCase();
+            loadLanguage(language);
+            sessionStorage.setItem('selectedLanguage', language); // Save to session storage
+            dropdown.firstChild.textContent = this.textContent; // Update the displayed language
+            options.classList.add('hidden'); // Hide options after selection
         });
     });
+
+    // Function to load and apply the selected language
+    function loadLanguage(lang) {
+        fetch('assets/json/lang.json') 
+            .then(response => response.json())
+            .then(data => {
+                document.querySelectorAll('[data-key]').forEach(elem => {
+                    const key = elem.getAttribute('data-key');
+                    if (data[lang][key]) {
+                        elem.innerHTML = data[lang][key]; 
+                    }
+                });
+            })
+            .catch(error => console.error('Error loading the translation data:', error));
+    }
+    // Retrieve and load the stored language from session storage
+    if (storedLanguage) {
+        loadLanguage(storedLanguage);
+        dropdown.firstChild.textContent = storedLanguage.toUpperCase(); // Display the stored language in the dropdown
+    } else {
+        loadLanguage('en'); // Load default language if no session storage value is present
+    }
 });
