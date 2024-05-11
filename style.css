@@ -190,33 +190,44 @@ html, body {
 
 .dropdown-selected .arrow {
     position: absolute;
-    right: calc(var(--size-16) * -1);
-    top: var(--size-8);
+    right: calc(var(--size-16) * -0.4);
+    top: calc(var(--size-16) * 0.3);
+    transform: scaleX(1.5);
+    font-size: var(--fs-14);
 }
 
-.dropdown-selected .arrow img {
-    width: var(--size-24);
-    aspect-ratio: 1 / 1;
+.dropdown-selected:hover,
+.dropdown-selected:focus {
+    color: var(--primary-blue);
 }
 
 .dropdown-options {
     position: absolute;
     width: 100%;
-    background-color: transparent;
-    top: 100%;
-    left: 0;
-    z-index: 1000;
+    background-color: rgba(5, 10, 37, 1);
+    top: 120%;
+    left: 20%;
+    z-index: 10;
     display: none;
+    border: 1px solid var(--primary-blue);
+    border-radius: 5px;
+    padding: var(--size-8);
 }
 
 .dropdown-option {
     color: white;
-    padding: var(--size-8) var(--size-16);
+    padding: var(--size-8) var(--size-8);
+    text-align: center;
     cursor: pointer;
 }
 
+.dropdown-option:first-of-type {
+    border-bottom: 1px solid rgb(128, 128, 128, 0.3);
+}
+
 .dropdown-option:hover {
-    background-color: transparent; /* Slightly lighter black for hover effect */
+    background-color: rgba(5, 10, 37, 1);
+    color: var(--primary-blue);
 }
 
 .hidden {
@@ -1422,8 +1433,9 @@ strong {
     
     .dropdown-selected .arrow {
         position: absolute;
-        right: -12px;
-        top: 8px;
+        right: -6px;
+        top: 6px;
+        font-size: 14px;
     }
     
     .dropdown-selected .arrow img {
