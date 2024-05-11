@@ -992,6 +992,7 @@ strong {
     }
     .nav.mobile {
         align-self: center;
+        min-height: 60vh;
     }
     .nav.mobile .top-nav-list {
         flex-direction: column;
