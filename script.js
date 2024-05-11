@@ -157,38 +157,30 @@ document.addEventListener("DOMContentLoaded", function() {
     initAnimation();
 
 
-    // Find all elements that will trigger the expand/collapse behavior
-    const bookingIcons = document.querySelectorAll('.icon-booking');
+    // Collapsible booking items
+    const bookingElements = document.querySelectorAll('.booking-grid-element');
 
-    // Iterate over each booking icon and add a click event listener
-    bookingIcons.forEach(icon => {
-        icon.addEventListener('click', function () {
-            // Find the associated `booking-ul` element within the same `booking-grid-element`
-            const parentElement = icon.closest('.booking-grid-element');
-            const bookingUl = parentElement.querySelector('.booking-ul');
+    bookingElements.forEach(element => {
+        const bookingUl = element.querySelector('.booking-ul');
+        let timeoutId = null; // To manage timeouts between enter and leave
 
-            // Toggle the display and sliding effect
-            if (bookingUl.style.display === 'block') {
-                // Slide up to hide
-                bookingUl.style.height = '0';
-                bookingUl.style.opacity = '0';
-                setTimeout(() => {
-                    bookingUl.style.display = 'none';
-                }, 700);
+        element.addEventListener('mouseenter', () => {
+            clearTimeout(timeoutId); // Ensure no pending hide actions
+            bookingUl.style.display = 'block';
+            // requestAnimationFrame for smooth visual updates
+            requestAnimationFrame(() => {
+                bookingUl.style.height = `${bookingUl.scrollHeight}px`;
+                bookingUl.style.opacity = '1';
+            });
+        });
 
-                // Change the icon to "close"
-                icon.src = 'assets/svgs/booking-element-close.svg';
-            } else {
-                // Slide down to show
-                bookingUl.style.display = 'block';
-                setTimeout(() => {
-                    bookingUl.style.height = `${bookingUl.scrollHeight}px`;
-                    bookingUl.style.opacity = '1';
-                }, 20);
-
-                // Change the icon to "open"
-                icon.src = 'assets/svgs/booking-element-open.svg';
-            }
+        element.addEventListener('mouseleave', () => {
+            clearTimeout(timeoutId); // Clear previous timeouts to prevent conflicts
+            bookingUl.style.height = '0';
+            bookingUl.style.opacity = '0';
+            timeoutId = setTimeout(() => {
+                bookingUl.style.display = 'none';
+            }, 700);
         });
     });
 
@@ -254,7 +246,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const emergingElements = document.querySelectorAll('.emerging-element-wrapper');
 
     let emergingWrapperIndex = 0;
-    const intervalDuration = 1500; // 1.5 seconds per element
+    const intervalDuration = 300; // 0.3 seconds per element
 
     // Function to reset the opacity of all elements to 0.2
     function resetOpacity() {
