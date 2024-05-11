@@ -79,6 +79,7 @@ html, body {
 .wrapper {
     padding-inline: var(--size-40);
     margin-inline: auto;
+    padding-top: calc(var(--size-64) * 2);
 }
 
 /* Navigation */
@@ -86,6 +87,13 @@ html, body {
 .header {
     color: var(--white);
     padding-block: var(--size-40);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #050A25;
+    z-index: 20;
+    padding-inline: var(--size-40);
 }
 
 .header-inner-wrapper {
@@ -1008,6 +1016,9 @@ strong {
     }
     .logo-wrapper {
         font-size: 22px;
+    }
+    .wrapper {
+        padding-top: 80px;
     }
     .header {
         display: flex;
