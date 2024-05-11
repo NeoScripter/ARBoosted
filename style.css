@@ -358,8 +358,23 @@ img.left-arrow.disabled, img.right-arrow.disabled {
 }
 
 .animated-title p {
-    transition: opacity 1.5s ease;
+    transition: opacity 0.5s ease;
+   /*  opacity: 0.5; */
+}
+
+.animated-title {
+    display: none; /* Initially hide all titles except the first one */
+
+}
+
+/* Initially only the first title is visible */
+.animated-text-wrapper .animated-title:first-of-type {
+    display: block;
+}
+
+.animated-title span {
     opacity: 0.5;
+    transition: opacity 0.3s ease-in; /* Smooth transition for the opacity */
 }
 
 .intro-grid-group {

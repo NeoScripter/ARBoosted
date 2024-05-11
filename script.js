@@ -99,62 +99,49 @@ document.addEventListener("DOMContentLoaded", function() {
     addHoverListeners(leftArrow, 'left');
 
     // Animated title in the intro section 
-    const animatedTitles = document.querySelectorAll('.animated-title');
+    const titles = document.querySelectorAll('.animated-title');
     let currentTitleIndex = 0;
 
-    function initAnimation() {
-        // Initially hide all titles and set paragraphs opacity to 0.5
-        animatedTitles.forEach(title => {
-            title.style.display = 'none';
-            const prgs = title.querySelectorAll('p');
-            prgs.forEach(prg => prg.style.opacity = '0.5');
-        });
+    function typeAnimation() {
+        const title = titles[currentTitleIndex];
+        const elements = Array.from(title.childNodes); // Get all child nodes including text and <br> tags
+        title.innerHTML = ''; // Clear current title content
 
-        // Start animation with the first title
-        cycleTitles();
-    }
-
-    function cycleTitles() {
-        const currentTitle = animatedTitles[currentTitleIndex];
-        currentTitle.style.display = 'block'; // Show the current title
-
-        makeParagraphsVisible(currentTitle, () => {
-            // After all paragraphs are visible
-            setTimeout(() => {
-                fadeOutTitle(currentTitle, () => {
-                    // Move to the next title
-                    currentTitleIndex = (currentTitleIndex + 1) % animatedTitles.length;
-                    cycleTitles();
+        // Function to process each node (either text or <br>)
+        elements.forEach(node => {
+            if (node.nodeType === Node.TEXT_NODE) { // Handle text nodes
+                const textContent = node.textContent;
+                textContent.split('').forEach(char => {
+                    const span = document.createElement('span');
+                    span.textContent = char;
+                    title.appendChild(span);
                 });
-            }, 1500); // Wait for 1.5 seconds before fading out and moving to the next title
+            } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'BR') { // Maintain line breaks
+                title.appendChild(node.cloneNode());
+            }
         });
+
+        let charIndex = 0;
+        const spans = title.querySelectorAll('span');
+        function showNextChar() {
+            if (charIndex < spans.length) {
+                spans[charIndex].style.opacity = 1;
+                charIndex++;
+                setTimeout(showNextChar, 40); // Speed of "typing"
+            } else {
+                setTimeout(() => {
+                    title.style.display = 'none'; 
+                    currentTitleIndex = (currentTitleIndex + 1) % titles.length;
+                    titles[currentTitleIndex].style.display = 'block';
+                    typeAnimation(); 
+                }, 500); // Delay before transitioning to the next title
+            }
+        }
+
+        showNextChar(); // Start showing characters
     }
 
-    function makeParagraphsVisible(title, callback) {
-        const prgs = title.querySelectorAll('p');
-        let delay = 1500;
-
-        prgs.forEach((prg, index) => {
-            setTimeout(() => {
-                prg.style.opacity = '1';
-                if (index === prgs.length - 1) {
-                    // If it's the last paragraph, call the callback after it's fully visible
-                    setTimeout(callback, 1500);
-                }
-            }, delay);
-            delay += 1500; // Increment delay for each paragraph
-        });
-    }
-
-    function fadeOutTitle(title, callback) {
-        const prgs = title.querySelectorAll('p');
-        prgs.forEach(prg => prg.style.opacity = '0.5');
-        title.style.display = 'none';
-            callback();
-    }
-
-    // Start the initial animation setup
-    initAnimation();
+    typeAnimation(); // Start the initial animation
 
 
     // Collapsible booking items
@@ -212,7 +199,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const newPosition = currentSlide + direction;
             if (newPosition >= 0 && newPosition < items.length) {
                 currentSlide = newPosition;
-                moveTrack((itemWidth + 24) * currentSlide);
+                moveTrack((itemWidth + 25) * currentSlide);
             }
         }
 
