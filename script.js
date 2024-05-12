@@ -310,6 +310,7 @@ document.addEventListener("DOMContentLoaded", function() {
             })
             .catch(error => console.error('Error loading the translation data:', error));
     }
+    const storedLanguage = sessionStorage.getItem('selectedLanguage');
     // Retrieve and load the stored language from session storage
     if (storedLanguage) {
         loadLanguage(storedLanguage);

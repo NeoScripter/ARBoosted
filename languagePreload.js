@@ -10,7 +10,7 @@ fetch('assets/json/lang.json')
     .catch(error => console.error('Error preloading language data:', error));
 
 function initializeLanguage() {
-    const storedLanguage = sessionStorage.getItem('selectedLanguage') || 'en';
+    const storedLanguage = sessionStorage.getItem('selectedLanguage') ? sessionStorage.getItem('selectedLanguage') : 'en';
     loadLanguage(storedLanguage);
 }
 
