@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (charIndex < spans.length) {
                 spans[charIndex].style.opacity = 1;
                 charIndex++;
-                setTimeout(showNextChar, 10);
+                setTimeout(showNextChar, 60);
             } else {
                 setTimeout(() => {
                     typeAnimation(); // Recur for the next title
