@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.min.css">
     <script src="script.js" defer></script>
-    <script src="languagePreload.js" async></script>
+    <script src="languagePreload.js" defer></script>
+    <script src="https://unpkg.com/marquee3000@1.0.5"></script>
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" >
         (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -113,8 +114,10 @@
                     <img src="assets/svgs/line-enabled.svg" alt="line" class="right-line">
                     <img src="assets/svgs/right-arrow-normal.svg" alt="right arrow" class="right-arrow">
                 </div>
-                <div class="marquee">
-                    <p>BOOKED TODAY: ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ BOOKED TODAY: ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ BOOKED TODAY: ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$</p><p>BOOKED TODAY: ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ BOOKED TODAY: ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ BOOKED TODAY: ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$</p>
+                <div class="marquee-wrapper">
+                    <div class="marquee3k" data-speed="5" data-pausable="false">
+                        <span>Текст 1: ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ Текст 2 ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ Текст 3: ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$Текст 1.5: ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ Текст 4 ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ Текст 5: ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$Текст 6: ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ Текст 7 ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ Текст 8: ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$Текст 1: ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ Текст 2 ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ Текст 3: ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$Текст 1.5: ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ Текст 4 ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ Текст 5: ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$Текст 6: ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ Текст 7 ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$ Текст 8: ONT8 -> ONT6, 10 Mi, 250$ / ONT8 -> ONT6, 10 Mi, 250$</span>
+                    </div>
                 </div>
             </section>
             <section class="intro">
@@ -418,5 +421,10 @@
             </div>
         </footer>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            Marquee3k.init();
+        });
+    </script>
 </body>
 </html>

@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function() {
     addHoverListeners(leftArrow, 'left');
 
     // Animated title in the intro section 
-    const titles = document.querySelectorAll('.animated-text-wrapper .animated-title');
+    const titles = document.querySelectorAll('.animated-title');
     let currentTitleIndex = 0;
 
     // Function to initiate the animation cycle
@@ -142,13 +142,13 @@ document.addEventListener("DOMContentLoaded", function() {
             if (charIndex < spans.length) {
                 spans[charIndex].style.opacity = 1;
                 charIndex++;
-                setTimeout(showNextChar, 60);
+                setTimeout(showNextChar, 10);
             } else {
                 setTimeout(() => {
+                    typeAnimation(); // Recur for the next title
                     title.innerHTML = originalHTML;
                     title.style.display = 'none';
                     currentTitleIndex = (currentTitleIndex + 1) % titles.length;
-                    typeAnimation(); // Recur for the next title
                 }, 500);
             }
         }
