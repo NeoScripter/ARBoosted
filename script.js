@@ -247,7 +247,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const emergingElements = document.querySelectorAll('.emerging-element-wrapper');
 
     let emergingWrapperIndex = 0;
-    const intervalDuration = 300; // 0.3 seconds per element
+    const intervalDuration = 1500; // 0.3 seconds per element
 
     // Function to reset the opacity of all elements to 0.2
     function resetOpacity() {
